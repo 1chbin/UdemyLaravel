@@ -20,20 +20,22 @@
     </head>
     <body class="bg-gray-100">
 
-        <header class=" p-10 border-b bg-white shadow">
+        <header class="content-center p-10 border-b bg-white shadow items-center flex justify-between">
             <h1 class="text-3xl font-black">Devstagram</h1>
-            <hr>
-            <nav class="text-center font-black">
-                <a href="/">Welcome</a>
-                <a href="/Nosotros">Nosotros</a>
-                <a href="/crearCuenta">Crear Cuenta</a>
-                
+            
+            <nav class="items-center text-center font-black flex justify-around">
+                <a class="p-0.5 underline" href="/">Welcome</a>
+                <a class="p-0.5 underline" href="/Nosotros">Nosotros</a>
+                <a class="p-0.5 underline" href="/crearCuenta">Crear Cuenta</a>
+                <hr>
             </nav>
         </header>
 
         
-        <main class="container mt-10">
-            <h1 class=" text-center text-2xl font-black underline">@yield('titulo')</h1>
+        <main class="container">
+            <div class="content-center p-10 border-b items-center flex justify-center">
+                <h1 class=" text-center text-2xl font-black underline items-center flex">@yield('titulo')</h1>
+            </div>
         </main>
         
 

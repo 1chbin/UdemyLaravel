@@ -10,37 +10,49 @@
         <div class="md:w-1/3">
             <img src="{{ asset('img/registrar.jpg') }}" alt="Imagen de resgistro de usuarios">
         </div>
-        <div class="md:w-1/2">
-            <form>
-                <div class="bg-white p-5 rounded-lg shadow">
-                    <form>
 
+                <div class="bg-white p-5 rounded-lg shadow md:w-1/2">
+                    <form action="/crearCuenta" method="POST" novalidate>
+                        @csrf
                         <div class="mb-5">
-                            <label for="Nombre" class="mb-2 block uppercase text-gray-600 font-bold">
+                            <label for="name" class="mb-2 block uppercase text-gray-600 font-bold">
                                 Tu Nombre
                             </label>
-                            <input class="border p-3 w-full rounded-lg" type="text" id="Nombre" name="name" placeholder="Tu Nombre de Usuario">
+                            <input class="border p-3 w-full rounded-lg @error('name') border-red-500 @enderror" type="text" id="name" name="name" placeholder="Tu Nombre de Usuario" value="{{old('name')}}">
+                            @error('name')
+                                <p class=" text-red-600">{{ $message }}</p>
+                            @enderror
+                            
                         </div>
 
                         <div class="mb-5">
-                            <label for="Username" class="mb-2 block uppercase text-gray-600 font-bold">
+                            <label for="username" class="mb-2 block uppercase text-gray-600 font-bold">
                                 Username
                             </label>
                             <input class="border p-3 w-full rounded-lg" type="text" id="Username" name="name" placeholder="Tu Nombre de Usuario">
+                            @error('username')
+                                <p class=" text-red-600">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="mb-5">
-                            <label for="Email" class="mb-2 block uppercase text-gray-600 font-bold">
+                            <label for="email" class="mb-2 block uppercase text-gray-600 font-bold">
                                 Tu Email
                             </label>
-                            <input class="border p-3 w-full rounded-lg" type="email" id="Email" name="Email" placeholder="Tu direccion e-mail">
+                            <input class="border p-3 w-full rounded-lg" type="email" id="email" name="email" placeholder="Tu direccion e-mail">
+                            @error('email')
+                                <p class=" text-red-600">{{ $message }}</p>
+                            @enderror
                         </div>
                     
                         <div class="mb-5">
-                            <label for="Password" class="mb-2 block uppercase text-gray-600 font-bold">
+                            <label for="password" class="mb-2 block uppercase text-gray-600 font-bold">
                                 Contraseña
                             </label>
-                            <input class="border p-3 w-full rounded-lg" type="password" id="Password" name="Password" placeholder="Tu Contraseña">
+                            <input class="border p-3 w-full rounded-lg" type="password" id="password" name="password" placeholder="Tu Contraseña">
+                            @error('password')
+                                <p class=" text-red-600">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="mb-5">
@@ -54,7 +66,6 @@
 
                     </form>
                 </div>
-            </form>
-        </div>
+        
     </div>
 @endsection

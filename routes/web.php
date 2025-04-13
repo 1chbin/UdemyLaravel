@@ -20,5 +20,6 @@ Route::get('/tailwind', function () {
 });
 
 route::get('/crearCuenta', [RegisterController::class, 'index']);
+route::post('/crearCuenta', [RegisterController::class, 'store']);
 
 Route::view('tailwindcss', 'tailwindcss');
