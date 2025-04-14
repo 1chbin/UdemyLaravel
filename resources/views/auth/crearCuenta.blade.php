@@ -29,7 +29,7 @@
                             <label for="username" class="mb-2 block uppercase text-gray-600 font-bold">
                                 Username
                             </label>
-                            <input class="border p-3 w-full rounded-lg" type="text" id="Username" name="name" placeholder="Tu Nombre de Usuario">
+                            <input class="border p-3 w-full rounded-lg" type="text" id="username" name="username" placeholder="Tu Nombre de Usuario">
                             @error('username')
                                 <p class=" text-red-600">{{ $message }}</p>
                             @enderror
@@ -56,10 +56,10 @@
                         </div>
 
                         <div class="mb-5">
-                            <label for="PasswordConfirmation" class="mb-2 block uppercase text-gray-600 font-bold">
+                            <label for="password_confirmation" class="mb-2 block uppercase text-gray-600 font-bold">
                                 Repetir Contraseña
                             </label>
-                            <input class="border p-3 w-full rounded-lg" type="password" id="PasswordConfirmation" name="PasswordConfirmation" placeholder="Tu Contraseña">
+                            <input class="border p-3 w-full rounded-lg" type="password" id="password_confirmation" name="password_confirmation" placeholder="Tu Contraseña">
                         </div>
 
                         <input type="submit" value="Crear Cuenta" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
