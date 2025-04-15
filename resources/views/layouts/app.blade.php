@@ -27,6 +27,7 @@
                 <a class="p-0.5 underline" href="/">Welcome</a>
                 <a class="p-0.5 underline" href="/Nosotros">Nosotros</a>
                 <a class="p-0.5 underline" href="/crearCuenta">Crear Cuenta</a>
+                <a class="p-0.5 underline" href="/login">Logear Cuenta</a>
                 <hr>
             </nav>
         </header>

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;  
 
 abstract class Controller
 {
@@ -44,7 +46,12 @@ class RegisterController extends Controller{
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => Hash::make($request->password)
         ]);
+
+        Auth::attempt($request->only('email','password'));
+
+        return redirect()->route('posts.index');
+
     }
 }
