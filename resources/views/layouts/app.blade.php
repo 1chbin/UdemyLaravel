@@ -22,12 +22,23 @@
 
         <header class="content-center p-10 border-b bg-white shadow items-center flex justify-between">
             <h1 class="text-3xl font-black">Devstagram</h1>
+
+            @auth
+                <a class="p-0.5 underline" href="/crearCuenta">Hola: <span class="font-normal">{{auth()->user()->username}}</span></a>
+
+                <a class="p-0.5 underline" href="/login">Cerrar Sesion</a>
+            @endauth
+
+            @guest
+                <a class="p-0.5 underline" href="/crearCuenta">Crear Cuenta</a>
+
+                <a class="p-0.5 underline" href="/login">Logear Cuenta</a>
+            @endguest
             
             <nav class="items-center text-center font-black flex justify-around">
                 <a class="p-0.5 underline" href="/">Welcome</a>
                 <a class="p-0.5 underline" href="/Nosotros">Nosotros</a>
-                <a class="p-0.5 underline" href="/crearCuenta">Crear Cuenta</a>
-                <a class="p-0.5 underline" href="/login">Logear Cuenta</a>
+                
                 <hr>
             </nav>
         </header>

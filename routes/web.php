@@ -28,5 +28,6 @@ Route::get('/muro', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
+Route::post('/login', [LoginController::class, 'index'])->name('login');
 
 Route::view('tailwindcss', 'tailwindcss');
