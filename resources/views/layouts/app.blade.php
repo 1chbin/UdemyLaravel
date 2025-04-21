@@ -24,13 +24,31 @@
             <h1 class="text-3xl font-black">Devstagram</h1>
 
             @auth
-                <a class="p-0.5 underline" href="/logout">
-                    Hola: <span class="font-normal">{{auth()->user()->username}}</span></a>
 
+                <nav class="flex items-center gap-2">
+
+                    <a href="{{ route('posts.create') }}" class="flex items-center gap-2 bg-blue-400 border p-2 text-white rounded text-sm uppercase font-bold cursor-pointer">
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                            </svg>
+                            
+                        
+                        crear
+                    </a>
+
+                    <a class="p-0.5" href="/logout">
+                        Hola: <span class="font-normal underline">{{auth()->user()->username}}</span>
+                    </a>
+    
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button class="underline cursor-pointer" type="submit">Cerrar sesión</button>
                     </form>
+
+                </nav>
+
+                
             @endauth
 
             @guest
@@ -50,7 +68,7 @@
         
         <main class="container">
             <div class="content-center p-10 border-b items-center flex justify-center">
-                <h1 class=" text-center text-2xl font-black underline items-center flex">@yield('titulo')</h1>
+                <h1 class=" text-center text-2xl font-black items-center flex">@yield('titulo')</h1>
             </div>
         </main>
         
