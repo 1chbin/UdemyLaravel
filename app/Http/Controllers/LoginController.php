@@ -19,8 +19,8 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-
-        if(!Auth::attempt($request->only('email','password'))){
+        
+        if(!Auth::attempt($request->only('email','password'), $request->remember)){
             return back()->with('mensaje', 'Credenciales incorrectas');
         }
 

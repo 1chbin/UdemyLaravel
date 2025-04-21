@@ -41,6 +41,11 @@
                             @enderror
                         </div>
 
+                        <div class=" mb-4 flex ">
+                            <input class="justify-items-center content-center items-center" type="checkbox" value="remember">
+                            <label class="ml-2 uppercase text-gray-600 font-bold">Mantener mi sesion iniciada</label>
+                        </div>
+
                         <input type="submit" value="Iniciar Sesion" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
 
                     </form>

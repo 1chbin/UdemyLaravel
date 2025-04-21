@@ -24,9 +24,13 @@
             <h1 class="text-3xl font-black">Devstagram</h1>
 
             @auth
-                <a class="p-0.5 underline" href="/crearCuenta">Hola: <span class="font-normal">{{auth()->user()->username}}</span></a>
+                <a class="p-0.5 underline" href="/logout">
+                    Hola: <span class="font-normal">{{auth()->user()->username}}</span></a>
 
-                <a class="p-0.5 underline" href="/login">Cerrar Sesion</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="underline cursor-pointer" type="submit">Cerrar sesión</button>
+                    </form>
             @endauth
 
             @guest
