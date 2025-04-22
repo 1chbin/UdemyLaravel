@@ -9,6 +9,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
+        @stack('styles')
+
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -37,7 +39,7 @@
                         crear
                     </a>
 
-                    <a class="p-0.5" href="/logout">
+                    <a class="p-0.5" href="{{route('posts.index', auth()->user()->username)}}">
                         Hola: <span class="font-normal underline">{{auth()->user()->username}}</span>
                     </a>
     

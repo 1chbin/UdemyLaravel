@@ -47,5 +47,9 @@ class User extends Authenticatable
         ];
     }
 
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
     
 }
