@@ -17,8 +17,12 @@ class PostController extends Controller
     }*/
 
     public function index(User $user){
+
+        $posts = Post::where('user_id', $user->id)->get();
+
         return view('dashboard', [
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
     }
 
@@ -26,6 +30,7 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    //requerimientos de publlicaciones
     public function store(Request $request){
         $request->validate([
             'titulo' => 'required|max:100',
@@ -33,7 +38,16 @@ class PostController extends Controller
             'imagen'=>'required'
         ]);
 
-        Post::create([
+        //otra forma
+        // Post::create([
+        //     'titulo' => $request->titulo,
+        //     'descripcion' => $request->descripcion,
+        //     'imagen' => $request->imagen,
+        //     'user_id' => Auth::user()->id
+        // ]);
+
+        //campos necesarios
+        $request->user()->posts()->create([
             'titulo' => $request->titulo,
             'descripcion' => $request->descripcion,
             'imagen' => $request->imagen,
