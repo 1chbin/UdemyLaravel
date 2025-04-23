@@ -18,7 +18,7 @@
         </div>
 
         <div class="md:w-1/2 px-10 bg-white p-5 rounded-lg shadow mt-10 md:mt-0">
-            <form action="/crearCuenta" method="POST" novalidate>
+            <form action="{{route('posts.store')}}" method="POST" novalidate>
                 @csrf
 
                 <div class="mb-5">
@@ -43,6 +43,15 @@
                         <p class=" text-red-600">{{ $message }}</p>
                     @enderror
                     
+                    <div class="mb-5">
+
+                        <input type="hidden" name="imagen" value="{{old('imagen')}}">
+                        @error('imagen')
+                            <p class=" text-red-600">{{ $message }}</p>
+                        @enderror
+
+                    </div>
+
                     <input type="submit" value="Crear Publicacion" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg mt-5">
 
 
