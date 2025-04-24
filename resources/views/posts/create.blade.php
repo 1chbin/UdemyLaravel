@@ -43,7 +43,7 @@
                         <p class=" text-red-600">{{ $message }}</p>
                     @enderror
                     
-                    <div class="mb-5">
+                <div class="mb-5">
 
                         <input type="hidden" name="imagen" value="{{old('imagen')}}">
                         @error('imagen')

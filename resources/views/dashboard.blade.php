@@ -38,7 +38,7 @@ Perfil: {{ $user->username }}
         
         @if($posts->count())
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class=" grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @foreach ($posts as $post)
 
                 <div>

@@ -6,7 +6,7 @@
 
 @section('contenido')
 
-    <div class="container mx-auto flex justify-center content-center">
+    <div class="container md:flex mx-auto flex justify-center content-center">
 
         <div class="md:w-2/5">
             <img class="rounded-4xl" src="{{asset('uploads') . '/' . $post->imagen}}" alt="Imagen del post {{$post->titulo}}">
@@ -30,7 +30,9 @@
                 </p>
 
                 @auth
-                    <form action="">
+                    <form action="{{route('comentarios.store',['post' => $post, 'user' => $user])}}" method="POST">
+                        @csrf
+                        
                         <div class="mb-5">
 
                             <label for="comentario" class="mb-2 block uppercase text-gray-600 font-bold">
