@@ -36,19 +36,29 @@ Perfil: {{ $user->username }}
     <section class="container mx-auto mt-10">
         <h2 class="text-4xl text-center font-black my-10">Publicaciones</h2>
         
+        @if($posts->count())
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @foreach ($posts as $post)
 
-            <div>
-                <a>
-                    <img class="rounded" src="{{asset('uploads') . '/' . $post->imagen}}" alt="Publicacion:{{$post->titulo}}">
-                </a>
-            </div>
+                <div>
+                    <a>
+                        <img class="rounded" src="{{asset('uploads') . '/' . $post->imagen}}" alt="Publicacion:{{$post->titulo}}">
+                    </a>
+                </div>
 
-        @endforeach
-        
+            @endforeach
+        </div>  
+    
+        <div class="my-10">
+            {{$posts->links('pagination::tailwind')}}
+        </div>
+
+        @else
+            <p class="text-gray-500 uppercase text-sm text-center font-black">No Hay Posts</p>
+        @endif
     </section>
-</div>
+
 
     
 @endsection
