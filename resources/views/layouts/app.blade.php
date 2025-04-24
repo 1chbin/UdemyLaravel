@@ -22,7 +22,7 @@
     </head>
     <body class="bg-gray-100">
 
-        <header class="content-center p-10 border-b bg-white shadow items-center flex justify-between border-blue-900 rounded-b">
+        <header class="content-center p-10 bg-white shadow-xl items-center flex justify-between rounded-b">
             
             <a href="/"><h1 class="text-3xl font-black text-shadow text-blue-950">Devstagram</h1></a>
 
@@ -74,13 +74,11 @@
 
         
         <main class="container">
-            <div class="content-center p-10 border-b items-center flex justify-center">
+            <div class="content-center p-10 shadow items-center flex justify-center">
                 <h1 class=" text-center text-2xl font-black items-center flex">@yield('titulo')</h1>
             </div>
         </main>
         
-
-        <hr>
 
         <h2 class=" p-8">@yield('contenido')</h2>
     </body>

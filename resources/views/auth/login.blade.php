@@ -5,10 +5,9 @@
 @endsection
 
 @section('contenido')
-    Aqui podras registrarte
     <div class="md:flex md:justify-center md:gap-6 md:items-center">
         <div class="md:w-1/3">
-            <img src="{{ asset('img/login.jpg') }}" alt="Imagen de login de usuarios">
+            <img class="rounded-xl" src="{{ asset('img/login.jpg') }}" alt="Imagen de login de usuarios">
         </div>
 
                 <div class="bg-white p-5 rounded-lg shadow md:w-1/2">
