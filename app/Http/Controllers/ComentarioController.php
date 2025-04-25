@@ -7,11 +7,11 @@ use App\Models\User;
 use App\Models\Comentario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Container\Attributes\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ComentarioController extends Controller
 {
-    public function store(Request $request, User $user ,Post $post){
+    public function store(Request $request,User $user, Post $post){
 
         //validar
 
@@ -22,9 +22,9 @@ class ComentarioController extends Controller
         //almacenar el resultado
 
         Comentario::create([
-            'user_id' => Auth::user()->id,
-            'post-id' => $post->id,
-            'comentario' => $request->comentario
+            'user_id'    => Auth::user()->id,
+            'post_id'    => $post->id,       // ← CORRECTO
+            'comentario' => $request->comentario,
         ]);
 
         //Imprimir un mensaje
