@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Intervention\Image\Colors\Rgb\Channels\Red;
 
 class PostController extends Controller
@@ -62,5 +64,26 @@ class PostController extends Controller
             'post' => $post,
             'user' =>$user
         ]);
+    }
+
+    public function destroy(Post $post){
+        // if ($post->user_id === Auth::user()->id) {
+        //     dd('si es');
+        // } else{
+        //     dd('no es');
+        // }
+
+        Gate::allows('delete', $post);
+        $post->delete();
+
+        //eliminar la imagen
+        $imagen_path = public_path('uploads/' . $post->imagen);
+
+        if(File::exists($imagen_path)){
+            unlink($imagen_path);
+        }
+
+        //devolvemos al usuario a su cuenta
+        return redirect()->route('posts.index', Auth::user()->username);
     }
 }

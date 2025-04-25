@@ -20,6 +20,22 @@
                 <p class="text-sm text-gray-500">{{$post->created_at->diffForHumans()}}</p>
                 <p class="mt-5">{{$post->descripcion}}</p>
             </div>
+
+            @auth
+                @if ($post->user_id === auth()->user()->id)
+
+                    <form method="POST" action="{{route('posts.destroy', $post)}}">
+                        {{-- Aqui aplicamos el metodo SPOOFING por primera vez y es importante saberlo. En laravel
+                        podemos saber que desde un method solo se pueden usar los GET y POST. Pero con el spoofing 
+                        podemos ,incluir mas condiciones como la de eliminar o actualizar registros  --}}
+                        @method('DELETE')
+                        @csrf
+                        <input value="Eliminar publicacion" type="submit" class="uppercase bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-5 cursor-pointer">
+                    </form>
+
+                @endif
+            @endauth
+
         </div>
 
         <div class="md:w-1/2 p-5">
