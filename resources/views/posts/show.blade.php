@@ -30,6 +30,13 @@
                 </p>
 
                 @auth
+
+                @if (session('mensaje'))
+                    <div class="bg-green-500 p-2 rounded-lg mb-6 text-white text-center uppercase font-black">
+                        {{session('mensaje')}}
+                    </div>
+                @endif
+
                     <form action="{{route('comentarios.store',['post' => $post, 'user' => $user])}}" method="POST">
                         @csrf
                         
@@ -50,6 +57,29 @@
                         </div>
                     </form>
                 @endauth
+
+                <div class="bg-white mt-10 shadow mb-5 max-h-96 overflow-y-scroll">
+                    @if ($post->comentarios->count())
+
+                        @foreach ($post->comentarios as $comentario)
+
+                            <div class="p-1 m-2 bg-gray-200 shadow rounded">
+                                <a class="font-black" href="{{route('posts.index', $comentario->user)}}">
+                                    {{$comentario->user->username}}:
+                                </a>
+                                <p>{{$comentario->comentario}}</p>
+                                <p class="font-bold text-gray-400 text-sm">{{$comentario->created_at->diffForHumans()}}</p>
+                            </div>
+
+                        @endforeach
+
+                    @else
+                        <p class="p-10 text-center">
+                            No Hay Comentarios Aun.
+                        </p>
+                    @endif
+
+                </div>
 
             </div>
         
