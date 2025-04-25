@@ -44,7 +44,7 @@
     
                     <a class="p-0.5 underline font-black" href="/Nosotros">Nosotros</a>
 
-                    <a href="{{ route('posts.create') }}" class="flex shadow items-center gap-2 bg-blue-400 border p-2 text-white rounded text-sm uppercase font-bold cursor-pointer">
+                    <a href="{{ route('posts.create') }}" class="flex shadow items-center gap-2 bg-blue-400 hover:bg-blue-500 border p-2 text-white rounded text-sm uppercase font-bold cursor-pointer hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition ease-out duration-300">
                         
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
@@ -54,7 +54,7 @@
 
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button class="flex cursor-pointer p-2 m-2 bg-red-600 border text-white rounded font-black shadow" type="submit">
+                        <button class="flex cursor-pointer p-2 m-2 bg-red-500 hover:bg-red-600 border text-white rounded font-black shadow hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition ease-out duration-300" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" /></svg>
                             Cerrar sesión
@@ -68,9 +68,9 @@
 
             @guest
             <div class="flex justify-end">
-                <a class="p-2 m-2 bg-blue-500 border text-white rounded font-black" href="/crearCuenta">Crear Cuenta</a>
+                <a class="p-2 m-2 bg-blue-500 border text-white rounded font-black hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition ease-out duration-300" href="/crearCuenta">Crear Cuenta</a>
 
-                <a class="p-2 m-2 bg-blue-500 border text-white rounded font-black" href="/login">Logear Cuenta</a>
+                <a class="p-2 m-2 bg-blue-500 border text-white rounded font-black hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition ease-out duration-300" href="/login">Logear Cuenta</a>
             </div>
             @endguest
             
