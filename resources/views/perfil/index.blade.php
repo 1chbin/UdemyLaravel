@@ -39,7 +39,7 @@
                         Imagen De Perfil
                     </label>
 
-                    <input class="border bg-gray-200 text-gray-500 text-sm font-bold p-3 w-full rounded-lg cursor-pointer" 
+                    <input class="border bg-gray-100 text-gray-500 text-sm font-bold p-3 w-full rounded-lg cursor-pointer" 
                         type="file" 
                         accept=".jpg"
                         id="imagen" 
@@ -48,6 +48,26 @@
                         value="">
 
                     @error('imagen')
+                        <p class=" text-red-600">{{ $message }}</p>
+                    @enderror
+
+                </div>
+
+                {{-- CONTRASEÑA --}}
+                <div class="mb-5">
+
+                    <label for="password" class="mb-2 block uppercase text-gray-600 font-bold">
+                        Tu Contraseña
+                    </label>
+
+                    <input class="border p-3 w-full rounded-lg @error('name') border-red-500 @enderror" 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Tu Contraseña" 
+                        value="">
+
+                    @error('password')
                         <p class=" text-red-600">{{ $message }}</p>
                     @enderror
 

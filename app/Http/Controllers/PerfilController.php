@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -31,7 +32,12 @@ class PerfilController extends Controller
         // en lugar de $this->validate(...)
         $data = $request->validate([
             'username' => ['required','unique:users,username,'. Auth::user()->id ,'min:3','max:20'],
+            'password' => 'required'
         ]);
+
+        if (! Hash::check($request->password, Auth::user()->password)) {
+            return back()->withErrors(['password' => 'La contraseña ingresada no coincide']);
+        }
 
         if($request->imagen){
             $manager = new ImageManager(new Driver());
