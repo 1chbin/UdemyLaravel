@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
 
@@ -25,6 +26,7 @@ Route::get('/tailwind', function () {
     return view('tailwind');
 });
 
+
 route::get('/crearCuenta', [RegisterController::class, 'index']);
 route::post('/crearCuenta', [RegisterController::class, 'store']);
 
@@ -33,6 +35,11 @@ Route::get('/muro', [PostController::class, 'index'])->name('posts.index');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+//Rutas para editar el perfil
+Route::get('/editar-perfil', [PerfilController::class, 'index'])->name('perfil.index');
+
+Route::post('/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
 
 Route::view('tailwindcss', 'tailwindcss');
 
@@ -55,4 +62,7 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
 
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
+
+
+
 

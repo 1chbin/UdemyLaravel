@@ -52,7 +52,7 @@
 
                     </div>
 
-                    <input type="submit" value="Crear Publicacion" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg mt-5">
+                    <input type="submit" value="Crear Publicacion" class="bg-sky-600 hover:bg-sky-700 cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg mt-5 hover:scale-103 hover:shadow-lg transition ease-out duration-300">
 
 
                 </div>

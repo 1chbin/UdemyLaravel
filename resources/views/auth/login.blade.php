@@ -45,7 +45,7 @@
                             <label class="ml-2 uppercase text-gray-600 font-bold">Mantener mi sesion iniciada</label>
                         </div>
 
-                        <input type="submit" value="Iniciar Sesion" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
+                        <input type="submit" value="Iniciar Sesion" class="bg-sky-600 hover:bg-sky-700 cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg hover:scale-103 hover:shadow-lg transition ease-out duration-300">
 
                     </form>
                 </div>
