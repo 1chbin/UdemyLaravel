@@ -35,19 +35,51 @@ Perfil: {{ $user->username }}
                 </div>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
-                    <span class="font-normal"> Seguidores</span>
+                    {{$user->followers->count()}}
+                    {{-- METODO CHOICE PARA PODER ELEGIR LOS STRINGS ENTRE PLURAL Y SINGULAR --}}
+                    <span class="font-normal"> @choice('Seguidor|Seguidores', $user->followers->count())</span>
                 </p>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
-                    <span class="font-normal"> Siguiendo</span>
+                    {{$user->followings->count()}}
+                    <span class="font-normal">Siguiendo</span>
                 </p>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
+                    {{$user->posts->count()}}
                     <span class="font-normal"> Posts</span>
                 </p>
+
+                @auth
+
+                    @if ($user->id !== auth()->user()->id)
+
+                        {{-- SEGUIR --}}
+                        @if(!$user->siguiendo(auth()->user()))
+
+                            <form action="{{route('users.follow', $user)}}" method="POST">
+                                @csrf
+
+                                <input type="submit" value="seguir" class="flex shadow items-center gap-2 bg-blue-400 hover:bg-blue-500 border p-2 text-white rounded-2xl text-sm uppercase font-bold cursor-pointer hover:scale-105 hover:shadow-lg transition ease-out duration-300">
+
+                            </form>
+
+                        {{-- DEJAR DE SEGUIR --}}
+                        @else
+
+                            <form action="{{route('users.unfollow', $user)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" value="dejar de seguir" class="flex shadow items-center gap-2 bg-red-400 hover:bg-red-500 border p-2 text-white rounded-2xl text-sm uppercase font-bold cursor-pointer hover:scale-105 hover:shadow-lg transition ease-out duration-300">
+
+                            </form>
+
+                        @endif
+
+                    @endif
+
+                @endauth
 
             </div>
         </div>

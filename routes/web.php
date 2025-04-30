@@ -9,6 +9,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\FollowerController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,6 +42,7 @@ Route::get('/editar-perfil', [PerfilController::class, 'index'])->name('perfil.i
 
 Route::post('/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
 
+//TAILWIND
 Route::view('tailwindcss', 'tailwindcss');
 
 Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
@@ -63,6 +65,8 @@ Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('post
 
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
 
+//Seguir a personas
+Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
 
-
+Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
 
