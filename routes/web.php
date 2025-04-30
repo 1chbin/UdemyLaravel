@@ -10,10 +10,11 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/Nosotros', function () {
     return view('Nosotros');
@@ -27,6 +28,8 @@ Route::get('/tailwind', function () {
     return view('tailwind');
 });
 
+//Ruta para pagina de HOME
+Route::get('/', HomeController::class)->name('home');
 
 route::get('/crearCuenta', [RegisterController::class, 'index']);
 route::post('/crearCuenta', [RegisterController::class, 'store']);
