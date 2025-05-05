@@ -22,9 +22,21 @@
                 {{-- USUARIO --}}
                 <div class="w-3 px-5">
                     <a href="{{route('posts.index', $post->user->username)}}">
-                        <p class="font-bold text-gray-500 text-sm pt-2"> {{$post->user->username}}</p>
+                        <p class="font-bold text-gray-500 text-sm text-center p-5"> {{$post->user->username}}</p>
                     </a>
                 </div>
+
+
+                {{-- Intento de imagen de usuario
+                <div class="flex">
+                    <img 
+                            src="{{ $post->user->imagen ? asset('perfiles/' . $post->user->imagen) : asset('img/usuario.svg') }}"
+                            alt="{{ $post->user->username }}"
+                            class=" w-50 rounded-full"
+                            />
+                </div> --}}
+                
+                
 
             </div>
 
