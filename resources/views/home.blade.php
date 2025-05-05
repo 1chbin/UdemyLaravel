@@ -12,10 +12,20 @@
     <div class=" grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         @foreach ($posts as $post)
 
-            <div>
+            <div class="hover:scale-103 transition duration-200">
+
+                {{-- IMAGEN DE PUBLICACION --}}
                 <a href="{{route('posts.show',['post' => $post, 'user' => $post->user])}}">
-                    <img class="rounded hover:scale-103 hover:shadow transition duration-200" src="{{asset('uploads') . '/' . $post->imagen}}" alt="Publicacion:{{$post->titulo}}">
+                    <img class="rounded hover:shadow" src="{{asset('uploads') . '/' . $post->imagen}}" alt="Publicacion:{{$post->titulo}}">
                 </a>
+
+                {{-- USUARIO --}}
+                <div class="w-3 px-5">
+                    <a href="{{route('posts.index', $post->user->username)}}">
+                        <p class="font-bold text-gray-500 text-sm pt-2"> {{$post->user->username}}</p>
+                    </a>
+                </div>
+
             </div>
 
         @endforeach
