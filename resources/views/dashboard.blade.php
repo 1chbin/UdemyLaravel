@@ -42,7 +42,7 @@ Perfil: {{ $user->username }}
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
                     {{$user->followings->count()}}
-                    <span class="font-normal">Siguiendo</span>
+                    <a href="{{route('perfil.siguiendo', $user)}}">Siguiendo</a>
                 </p>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">

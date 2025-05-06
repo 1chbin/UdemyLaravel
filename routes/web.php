@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PerfilController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\FollowerController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SeguidosController;
+use App\Http\Controllers\ComentarioController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -72,4 +73,8 @@ Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('
 Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
 
 Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
+
+//VER A SEGUIDOS
+
+Route::get('/{user:username}/siguiendo', [SeguidosController::class, 'index'])->name('perfil.siguiendo');
 
