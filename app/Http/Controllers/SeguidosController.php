@@ -10,7 +10,6 @@ class SeguidosController extends Controller
     {
         $usuarios = $user->followings()->paginate(20);
     
-        // Ahora busca resources/views/perfil/siguiendo.blade.php
         return view('perfil.siguiendo', [
             'usuarios' => $usuarios,
             'user'     => $user,
